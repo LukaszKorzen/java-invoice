@@ -1,5 +1,7 @@
 package pl.edu.agh.mwo.invoice;
 
+import static org.junit.Assert.assertArrayEquals;
+
 import java.math.BigDecimal;
 
 import org.hamcrest.Matchers;
@@ -15,6 +17,7 @@ import pl.edu.agh.mwo.invoice.product.TaxFreeProduct;
 
 public class InvoiceTest {
     private Invoice invoice;
+	private int productscount;
 
     @Before
     public void createEmptyInvoiceForTheTest() {
@@ -120,4 +123,9 @@ public class InvoiceTest {
             public void testTheSameInvoiceHasTheSameNumber() {
             	Assert.assertEquals(invoice.getNumber(), invoice.getNumber());
             }    
+            @Test
+            public void testInvoicePrinthwhereareproducts() {
+            	int productscount = invoice.addProduct();
+				Assert.assertTrue( productscount > 0);
+            }   
 }

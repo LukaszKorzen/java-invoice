@@ -6,10 +6,13 @@ import java.util.Map;
 import java.util.Random;
 
 import pl.edu.agh.mwo.invoice.product.Product;
+import product.getProducts;
 
 public class Invoice {
 	private  final int number = Math.abs(new Random().nextInt());
     private Map<Product, Integer> products = new HashMap<Product, Integer>();
+
+    
 
     public void addProduct(Product product) {
         addProduct(product, 1);
@@ -20,6 +23,7 @@ public class Invoice {
             throw new IllegalArgumentException();
         }
         products.put(product, quantity);
+    
     }
 
     public BigDecimal getNetTotal() {
@@ -45,5 +49,25 @@ public class Invoice {
     }
     public int getNumber() {
     	return number;
+    	
     }
+    
+    public void PrintInvoice() {
+  
+    System.out.println(number);
+    int i = 1;
+   for (product get.addproduct()) {
+   System.out.println(i + ". " + products.toString()+ " " + totalGross.toString());
+    i++;
+    }
+    System.out.println(i);
+   
+
+	
+
+	}
 }
+//Dodaj możliwość wyciągnięcia z faktury listy produktów w postaci ciągu znaków, w którym 
+//każda linia zawiera informacje o kolejnej pozycji na fakturze: nazwa, liczba sztuk, cena.
+//Nad listą produktów powinien znaleźć się numer faktury. Na końcu listy
+//dodatkowa informacja: Liczba pozycji: N, gdzie N to liczba produktów na fakturze.
