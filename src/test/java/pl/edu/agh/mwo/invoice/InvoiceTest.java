@@ -103,5 +103,21 @@ public class InvoiceTest {
     @Test(expected = IllegalArgumentException.class)
     public void testInvoiceWithNegativeQuantity() {
         invoice.addProduct(new DairyProduct("Zsiadle mleko", new BigDecimal("5.55")), -1);
+      
     }
+    @Test
+    public void testInvoiceHasNumber() {
+        int number = invoice.getNumber();
+        Assert.assertTrue(number >0);
+    }  
+        @Test
+        public void testInvoiceHaveDifferentNumbers() {
+            int number = invoice.getNumber();
+            int number2 = new Invoice().getNumber();
+            Assert.assertNotEquals(number, number2);
+        }  
+            @Test
+            public void testTheSameInvoiceHasTheSameNumber() {
+            	Assert.assertEquals(invoice.getNumber(), invoice.getNumber());
+            }    
 }
